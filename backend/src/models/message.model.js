@@ -14,10 +14,16 @@ const messageSchema = new mongoose.Schema(
     },
     text: {
       type: String,
+      default: "",
     },
     image: {
       type: String,
+      default: "",
     },
+    isAI: {
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );
