@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -28,6 +28,12 @@ const Welcome = () => {
         >
           Login
         </button>
+        <Link
+          to="/credits"
+          className="bg-white text-[#720231] px-6 py-3 text-base rounded-md font-medium transition-transform hover:scale-105"
+        >
+          Credits
+        </Link>
       </div>
     </div>
   );
