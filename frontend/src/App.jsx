@@ -4,6 +4,7 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import Welcome from "./pages/Welcome";
+import Credits from "./pages/Credits";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
@@ -31,12 +32,13 @@ const App = () => {
     <div data-theme={theme}>
       <Navbar />
       <Routes>
-  <Route path="/" element={<Welcome />} />
-  <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/home" />} />
-  <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/home" />} />
-  <Route path="/home" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
-  <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
-</Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/home" />} />
+        <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/home" />} />
+        <Route path="/home" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
+        <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
+        <Route path="/credits" element={<Credits />} />
+      </Routes>
       <Toaster />
     </div>
   );
