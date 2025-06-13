@@ -9,6 +9,7 @@ import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
 import AISidebar from "./AISidebar";
 
+
 const ChatContainer = () => {
   const {
     messages,
@@ -18,9 +19,9 @@ const ChatContainer = () => {
     subscribeToMessages,
     unsubscribeFromMessages,
   } = useChatStore();
+
   const { authUser } = useAuthStore();
   const messageEndRef = useRef(null);
-  const prevSelectedUserRef = useRef(null);
 
   useEffect(() => {
     if (selectedUser?._id) {
@@ -50,15 +51,22 @@ const ChatContainer = () => {
   }
 
   return (
-    <div className="flex-1 flex overflow-auto">
+    <div className="flex-1 flex overflow-hidden">
+      
+      
+
+      
       <div className="flex-1 flex flex-col overflow-auto">
+        
         <ChatHeader />
 
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.map((message) => (
             <div
               key={message._id}
-              className={`chat ${message.senderId === authUser._id ? "chat-end" : "chat-start"}`}
+              className={`chat ${
+                message.senderId === authUser._id ? "chat-end" : "chat-start"
+              }`}
               ref={messageEndRef}
             >
               <div className="chat-image avatar">
@@ -99,7 +107,10 @@ const ChatContainer = () => {
 
         <MessageInput />
       </div>
+
+      
       <AISidebar />
+      
     </div>
   );
 };
