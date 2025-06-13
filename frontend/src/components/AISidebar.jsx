@@ -44,7 +44,7 @@ const AISidebar = () => {
   };
 
   return (
-    <div className="w-80 border-l border-base-300 bg-base-200 flex flex-col">
+    <div className="w-64 border-l border-base-300 bg-base-200 flex flex-col">
       <div className="p-4 border-b border-base-300 flex items-center gap-2">
         <Bot className="size-5 text-primary" />
         <h2 className="font-semibold">AI Assistant</h2>
