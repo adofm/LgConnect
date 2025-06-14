@@ -11,29 +11,27 @@ import { app, server } from "./lib/socket.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import todoRoutes from "./routes/todo.route.js";
-import meetingRoutes from "./routes/meeting.route.js"; // ✅ Add this import
+import meetingRoutes from "./routes/meeting.route.js"; 
+import { profileEnd } from "console";
 
 dotenv.config();
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-// ✅ Middlewares
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
 
-// ✅ API ROUTES
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/todos", todoRoutes);
-app.use("/api/meetings", meetingRoutes); // ✅ Mount meeting routes properly
+app.use("/api/meetings", meetingRoutes); 
 
-// ✅ Serve frontend in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
@@ -42,7 +40,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// ✅ Start server
 server.listen(PORT, () => {
   console.log("Server is running on PORT:", PORT);
   connectDB();
