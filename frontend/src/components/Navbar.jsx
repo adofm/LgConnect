@@ -3,9 +3,11 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import { FaUser, FaCalendarAlt, FaSignOutAlt, FaHome } from 'react-icons/fa';
 import main from "../components/lg.png";
-import axios from "axios";
+import { axiosInstance } from "../lib/axios";
 import { useState } from "react";
 import CalendarModal from "./CalendarModal";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Navbar = () => {
   const { logout, authUser } = useAuthStore();
@@ -32,7 +34,7 @@ const Navbar = () => {
     setLoading(true);
     try {
       const text = document.body.innerText;
-      const res = await axios.post("http://localhost:5001/api/translate", {
+      const res = await axiosInstance.post("/translate", {
         text,
         targetLang: language,
       });
