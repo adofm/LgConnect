@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/translate": "^9.1.0",
+    "cloudinary": "^2.6.1",
     "dotenv": "^16.5.0",
     "google-auth-library": "^9.15.1"
   }
