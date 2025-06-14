@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import axios from "axios";
+import { axiosInstance } from "../lib/axios";
 import { Clock, CheckCircle2, XCircle } from "lucide-react";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const CalendarModal = ({ isOpen, onClose }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -20,7 +22,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
   const fetchMeetings = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get("http://localhost:5001/api/meetings", { withCredentials: true });
+      const res = await axiosInstance.get("/meetings");
       setMeetings(res.data);
     } catch (err) {
       console.error("Error fetching meetings:", err);
@@ -33,16 +35,12 @@ const CalendarModal = ({ isOpen, onClose }) => {
     if (!meetingText.trim() || !meetingTime) return;
 
     try {
-      const response = await axios.post(
-        "http://localhost:5001/api/meetings",
-        {
-          title: meetingText,
-          date: selectedDate,
-          startTime: meetingTime,
-          completed: false
-        },
-        { withCredentials: true }
-      );
+      const response = await axiosInstance.post("/meetings", {
+        title: meetingText,
+        date: selectedDate,
+        startTime: meetingTime,
+        completed: false
+      });
 
       setMeetings([...meetings, response.data]);
       setMeetingText("");
@@ -54,11 +52,9 @@ const CalendarModal = ({ isOpen, onClose }) => {
 
   const handleToggleMeeting = async (meetingId, currentStatus) => {
     try {
-      const response = await axios.patch(
-        `http://localhost:5001/api/meetings/${meetingId}`,
-        { completed: !currentStatus },
-        { withCredentials: true }
-      );
+      const response = await axiosInstance.patch(`/meetings/${meetingId}`, {
+        completed: !currentStatus
+      });
 
       setMeetings(meetings.map(meeting => 
         meeting._id === meetingId ? response.data : meeting
