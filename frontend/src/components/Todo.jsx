@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import TodoItems from "./TodoItems";
+import { Plus, ListTodo } from "lucide-react";
 
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
@@ -79,35 +80,53 @@ const Todo = () => {
   };
 
   return (
-    <div className="bg-white place-self-center w-64 flex flex-col p-4 rounded-lg shadow max-h-[90vh] overflow-y-auto">
-      <h2 className="text-lg font-bold mb-4">To-Do List</h2>
-
-      <div className="flex items-center mb-4 bg-gray-200 rounded-full">
-        <input
-          ref={inputRef}
-          className="bg-transparent border-0 outline-none flex-1 h-10 pl-4 placeholder:text-slate-600 text-sm"
-          type="text"
-          placeholder="Add your Task"
-        />
-        <button
-          onClick={add}
-          className="border-none rounded-full bg-red-600 px-3 h-10 text-white text-sm font-medium"
-        >
-          Add
-        </button>
+    <div className="bg-white rounded-xl shadow-lg w-80 flex flex-col max-h-[90vh] overflow-hidden">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-[#A50034] to-[#720231] p-4">
+        <div className="flex items-center gap-3 text-white">
+          <ListTodo className="w-6 h-6" />
+          <h2 className="text-lg font-bold">To-Do List</h2>
+        </div>
       </div>
 
-      <div>
-        {todoList.map((item) => (
-          <TodoItems
-            key={item._id}
-            id={item._id}
-            text={item.text}
-            iscomplete={item.isComplete}
-            deleteTodo={deleteTodo}
-            toggle={() => toggle(item._id, item.isComplete)}
+      {/* Input Section */}
+      <div className="p-4 border-b">
+        <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-2">
+          <input
+            ref={inputRef}
+            className="bg-transparent border-0 outline-none flex-1 h-10 pl-2 placeholder:text-gray-400 text-sm"
+            type="text"
+            placeholder="Add your task..."
+            onKeyPress={(e) => e.key === 'Enter' && add()}
           />
-        ))}
+          <button
+            onClick={add}
+            className="bg-[#A50034] hover:bg-[#720231] text-white p-2 rounded-lg transition-colors"
+          >
+            <Plus className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Todo List */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-2">
+        {todoList.length === 0 ? (
+          <div className="text-center text-gray-500 py-8">
+            <p>No tasks yet</p>
+            <p className="text-sm">Add a task to get started</p>
+          </div>
+        ) : (
+          todoList.map((item) => (
+            <TodoItems
+              key={item._id}
+              id={item._id}
+              text={item.text}
+              iscomplete={item.isComplete}
+              deleteTodo={deleteTodo}
+              toggle={() => toggle(item._id, item.isComplete)}
+            />
+          ))
+        )}
       </div>
     </div>
   );
