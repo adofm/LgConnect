@@ -5,11 +5,12 @@ import { Plus, ListTodo } from "lucide-react";
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   const inputRef = useRef();
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const res = await fetch("http://localhost:5001/api/todos", {
+        const res = await fetch(`${backendUrl}/api/todos`, {
           credentials: "include", // ✅ important
         });
         const data = await res.json();
@@ -27,7 +28,7 @@ const Todo = () => {
     if (inputText === "") return;
 
     try {
-      const res = await fetch("http://localhost:5001/api/todos", {
+      const res = await fetch(`${backendUrl}/api/todos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ✅
@@ -46,7 +47,7 @@ const Todo = () => {
 
   const deleteTodo = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/todos/${id}`, {
+      const res = await fetch(`${backendUrl}/api/todos/${id}`, {
         method: "DELETE",
         credentials: "include", // ✅
       });
@@ -61,7 +62,7 @@ const Todo = () => {
 
   const toggle = async (id, isComplete) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/todos/${id}`, {
+      const res = await fetch(`${backendUrl}/api/todos/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ✅
