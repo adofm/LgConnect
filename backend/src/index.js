@@ -1,3 +1,4 @@
+// src/index.js
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -10,12 +11,14 @@ import { app, server } from "./lib/socket.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import todoRoutes from "./routes/todo.route.js";
+import meetingRoutes from "./routes/meeting.route.js"; // ✅ Add this import
 
-
+dotenv.config();
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-app.use(express.json({ limit: '50mb' }));
+// ✅ Middlewares
+app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(
   cors({
@@ -28,6 +31,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/todos", todoRoutes);
+app.use("/api/meetings", meetingRoutes); // ✅ Mount meeting routes properly
 
 // ✅ Serve frontend in production
 if (process.env.NODE_ENV === "production") {
