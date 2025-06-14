@@ -96,7 +96,7 @@ const AISidebar = () => {
         <div className="flex gap-2">
           <input
             type="text"
-            className="flex-1 input input-bordered input-sm"
+            className="w-0 flex-1 input input-bordered input-sm"
             placeholder="Type your message..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
@@ -104,7 +104,7 @@ const AISidebar = () => {
           />
           <button
             type="submit"
-            className="btn btn-sm btn-circle"
+            className="btn btn-primary btn-square btn-md flex-shrink-0"
             disabled={!prompt.trim() || isGenerating}
           >
             <Send size={18} />
