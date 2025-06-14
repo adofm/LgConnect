@@ -80,7 +80,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
     );
 
     if (hasMeeting && isFutureOrToday) {
-      return "bg-[#A50034] text-white font-semibold rounded-full";
+      return "bg-[#A50034] text-black font-semibold rounded-full";
     }
 
     return "";
