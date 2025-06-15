@@ -4,8 +4,6 @@ import "react-calendar/dist/Calendar.css";
 import { axiosInstance } from "../lib/axios";
 import { Clock, CheckCircle2, XCircle } from "lucide-react";
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
 const CalendarModal = ({ isOpen, onClose }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [meetingText, setMeetingText] = useState("");

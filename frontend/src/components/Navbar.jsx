@@ -7,8 +7,6 @@ import { axiosInstance } from "../lib/axios";
 import { useState } from "react";
 import CalendarModal from "./CalendarModal";
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
 const Navbar = () => {
   const { logout, authUser } = useAuthStore();
   const navigate = useNavigate();

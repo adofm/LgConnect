@@ -1,20 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
 import TodoItems from "./TodoItems";
 import { Plus, ListTodo } from "lucide-react";
+import { axiosInstance } from "../lib/axios";
 
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   const inputRef = useRef();
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const res = await fetch(`${backendUrl}/api/todos`, {
-          credentials: "include", // ✅ important
-        });
-        const data = await res.json();
-        setTodoList(data);
+        const res = await axiosInstance.get("/todos");
+        setTodoList(res.data);
       } catch (err) {
         console.error("Error fetching todos:", err);
       }
@@ -28,17 +25,8 @@ const Todo = () => {
     if (inputText === "") return;
 
     try {
-      const res = await fetch(`${backendUrl}/api/todos`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // ✅
-        body: JSON.stringify({ text: inputText }),
-      });
-
-      if (!res.ok) throw new Error("Failed to add todo");
-
-      const newTodo = await res.json();
-      setTodoList((prev) => [...prev, newTodo]);
+      const res = await axiosInstance.post("/todos", { text: inputText });
+      setTodoList((prev) => [...prev, res.data]);
       inputRef.current.value = "";
     } catch (err) {
       console.error("Error adding todo:", err);
@@ -47,13 +35,7 @@ const Todo = () => {
 
   const deleteTodo = async (id) => {
     try {
-      const res = await fetch(`${backendUrl}/api/todos/${id}`, {
-        method: "DELETE",
-        credentials: "include", // ✅
-      });
-
-      if (!res.ok) throw new Error("Failed to delete todo");
-
+      await axiosInstance.delete(`/todos/${id}`);
       setTodoList((prevTodos) => prevTodos.filter((todo) => todo._id !== id));
     } catch (err) {
       console.error("Error deleting todo:", err);
@@ -62,18 +44,9 @@ const Todo = () => {
 
   const toggle = async (id, isComplete) => {
     try {
-      const res = await fetch(`${backendUrl}/api/todos/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // ✅
-        body: JSON.stringify({ isComplete: !isComplete }),
-      });
-
-      if (!res.ok) throw new Error("Failed to toggle todo");
-
-      const updatedTodo = await res.json();
+      const res = await axiosInstance.patch(`/todos/${id}`, { isComplete: !isComplete });
       setTodoList((prev) =>
-        prev.map((todo) => (todo._id === id ? updatedTodo : todo))
+        prev.map((todo) => (todo._id === id ? res.data : todo))
       );
     } catch (err) {
       console.error("Error toggling todo:", err);
