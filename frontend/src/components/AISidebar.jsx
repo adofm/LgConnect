@@ -31,7 +31,7 @@ const AISidebar = () => {
     if (!preview) return;
 
     try {
-      await sendAIMessage(preview);
+      await sendAIMessage(prompt.trim());
       setPrompt("");
       setPreview(null);
     } catch (error) {
