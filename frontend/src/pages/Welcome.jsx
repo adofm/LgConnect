@@ -20,39 +20,39 @@ const Welcome = () => {
 
   const features = [
     {
-      icon: <FaRobot className="text-4xl text-[#A50034]" />,
+      icon: <FaRobot className="text-4xl text-white" />,
       title: "AI Assistant",
       description: "Smart AI agent to help with tasks, scheduling, and intelligent responses"
     },
     {
-      icon: <FaCalendarAlt className="text-4xl text-[#A50034]" />,
+      icon: <FaCalendarAlt className="text-4xl text-white" />,
       title: "Meeting Scheduler",
       description: "Easily schedule and manage meetings with smart time slot suggestions"
     },
     {
-      icon: <FaTasks className="text-4xl text-[#A50034]" />,
+      icon: <FaTasks className="text-4xl text-white" />,
       title: "Task Management",
       description: "Create, track, and manage your tasks with real-time updates"
     },
     {
-      icon: <FaShieldAlt className="text-4xl text-[#A50034]" />,
+      icon: <FaShieldAlt className="text-4xl text-white" />,
       title: "End-to-End Encryption",
       description: "Your conversations and data are protected with military-grade encryption"
     },
     {
-      icon: <FaMobileAlt className="text-4xl text-[#A50034]" />,
+      icon: <FaMobileAlt className="text-4xl text-white" />,
       title: "Responsive Design",
       description: "Seamless experience across all your devices - desktop, tablet, and mobile"
     },
     {
-      icon: <FaBolt className="text-4xl text-[#A50034]" />,
+      icon: <FaBolt className="text-4xl text-white" />,
       title: "Fast Messaging",
       description: "Lightning-fast message delivery with real-time notifications"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#A50034] to-[#720231]">
+    <div className="min-h-screen bg-white">
       {/* Navigation Bar */}
       <nav className="bg-black/20 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,10 +76,10 @@ const Welcome = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Welcome Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-white mb-6">
+          <h1 className="text-5xl font-bold text-[#A50034] mb-6">
             Welcome to LG Connect
           </h1>
-          <p className="text-xl text-white/80 mb-8">
+          <p className="text-xl text-gray-600 mb-8">
             Your all-in-one communication and productivity platform
           </p>
           
@@ -88,14 +88,14 @@ const Welcome = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
               <button
                 onClick={() => navigate('/login')}
-                className="flex items-center justify-center gap-2 bg-white text-[#A50034] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105"
+                className="flex items-center justify-center gap-2 bg-[#A50034] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#720231] transition duration-300 ease-in-out transform hover:scale-105"
               >
                 <FaSignInAlt />
                 Sign In
               </button>
               <button
                 onClick={() => navigate('/signup')}
-                className="flex items-center justify-center gap-2 bg-[#A50034] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#720231] transition duration-300 ease-in-out transform hover:scale-105"
+                className="flex items-center justify-center gap-2 bg-[#A50034] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#720231]  transition duration-300 ease-in-out transform hover:scale-105"
               >
                 <FaUserPlus />
                 Register
@@ -105,7 +105,7 @@ const Welcome = () => {
             <div className="flex justify-center mb-16">
               <button
                 onClick={() => navigate('/home')}
-                className="flex items-center justify-center gap-2 bg-white text-[#A50034] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105"
+                className="flex items-center justify-center gap-2 bg-[#A50034] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#720231] transition duration-300 ease-in-out transform hover:scale-105"
               >
                 <FaHome />
                 Go to Home
@@ -119,7 +119,7 @@ const Welcome = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-black/20 backdrop-blur-lg rounded-xl p-6 text-white hover:bg-black/30 transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-[#A50034] rounded-xl p-6 text-white hover:bg-[#720231] transition duration-300 ease-in-out transform hover:scale-105"
             >
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
