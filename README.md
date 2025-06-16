@@ -82,4 +82,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support, email support@lgconnect.com or open an issue in the repository.
+
+
 This is was a prototype which was developed during my time as a summer intern in LG
