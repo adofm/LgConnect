@@ -1,46 +1,60 @@
-# LG Connect - Real-time Chat Application with AI Assistant
+# 🌐 LG Connect – Intelligent Communication, Reinvented
 
-LG Connect is a modern real-time chat application built with React, Node.js, and Socket.IO, featuring an integrated AI assistant powered by OpenAI.
+**LG Connect** is a next-generation real-time chat platform built with **React**, **Node.js**, and **Socket.IO**, featuring a powerful **AI Assistant powered by OpenAI**. Designed for seamless, intelligent, and secure communication, this full-stack prototype was developed as part of my **Summer Internship at LG**.
 
-## Screenshots
+---
 
-### Welcome Page 
-<img width="1662" alt="image" src="https://github.com/user-attachments/assets/28396063-efea-4ba8-a287-d7f40f57557f" />
+## 📸 Screenshots
 
-### Sign up Sign in Page
-<img width="1664" alt="image" src="https://github.com/user-attachments/assets/385fc82f-ec42-49d6-979d-dd63448a2c9f" />
-  
-### AI Assistant in Action
-<img width="1662" alt="image" src="https://github.com/user-attachments/assets/48e4d85a-b986-41ec-bfcf-a225d685a740" />
+### 🚀 Welcome Page  
+<img width="1662" alt="Welcome Page" src="https://github.com/user-attachments/assets/28396063-efea-4ba8-a287-d7f40f57557f" />
 
+### 🔐 Sign Up / Sign In  
+<img width="1664" alt="Sign In / Sign Up Page" src="https://github.com/user-attachments/assets/385fc82f-ec42-49d6-979d-dd63448a2c9f" />
 
-## Features
+### 🤖 AI Assistant in Action  
+<img width="1662" alt="AI Assistant" src="https://github.com/user-attachments/assets/48e4d85a-b986-41ec-bfcf-a225d685a740" />
 
-- 💬 Real-time messaging with Socket.IO
-- 🤖 AI-powered message assistant
-- 🔒 Secure authentication
-- 📱 Responsive design
-- 🎨 Modern UI with Tailwind CSS
-- 🔄 Real-time message updates
-- 📸 Profile picture support
-- 🌐 Cross-platform compatibility
+---
 
-## Tech Stack
+## ✨ Features
 
-### Frontend
-- React.js
-- Tailwind CSS
-- Socket.IO Client
-- Zustand (State Management)
-- Axios
+- 💬 Real-time messaging using **Socket.IO**
+- 🤖 AI-powered assistant responses using **OpenAI GPT**
+- 🔐 Secure JWT-based authentication
+- 📱 Responsive mobile-first design
+- 🎨 Elegant UI with **Tailwind CSS**
+- 🔄 Live typing and message updates
+- 🖼️ Profile picture upload support
+- 🌍 Cross-platform and device compatibility
 
-### Backend
-- Node.js
-- Express.js
-- Socket.IO
-- MongoDB
-- OpenAI API
-- JWT Authentication
+---
+
+## 🛠️ Tech Stack
+
+### 🔹 Frontend
+- **React.js** – UI library
+- **Tailwind CSS** – Utility-first styling
+- **Zustand** – Lightweight state management
+- **Axios** – HTTP client
+- **Socket.IO Client** – Real-time communication
+
+### 🔹 Backend
+- **Node.js** & **Express.js** – RESTful API
+- **Socket.IO** – Real-time server
+- **MongoDB** – NoSQL database
+- **JWT** – Authentication
+- **OpenAI API** – Intelligent assistant
+
+---
+
+## 🚀 Local Development Setup
+
+### 🔧 Prerequisites
+- Node.js (v18 or above)
+- MongoDB (local or Atlas)
+- OpenAI API key
+- Git
 
 ## Quick Start
 
