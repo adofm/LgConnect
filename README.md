@@ -4,11 +4,15 @@ LG Connect is a modern real-time chat application built with React, Node.js, and
 
 ## Screenshots
 
-### Main Chat Interface
-![LG Connect Main Interface](docs/images/app-screenshot-1.png)
+### Welcome Page 
+<img width="1662" alt="image" src="https://github.com/user-attachments/assets/28396063-efea-4ba8-a287-d7f40f57557f" />
 
+### Sign up Sign in Page
+<img width="1664" alt="image" src="https://github.com/user-attachments/assets/385fc82f-ec42-49d6-979d-dd63448a2c9f" />
+  
 ### AI Assistant in Action
-![LG Connect AI Assistant](docs/images/app-screenshot-2.png)
+<img width="1662" alt="image" src="https://github.com/user-attachments/assets/48e4d85a-b986-41ec-bfcf-a225d685a740" />
+
 
 ## Features
 
